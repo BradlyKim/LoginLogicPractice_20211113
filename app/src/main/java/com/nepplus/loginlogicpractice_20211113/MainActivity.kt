@@ -3,38 +3,33 @@ package com.nepplus.loginlogicpractice_20211113
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        inputID.setOnClickListener {
+        btnLogIn.setOnClickListener {
+//            ID / PW에 입력된 내용 (text) -> 변수에 저장해두자.
 
+            val inputId = edtId.text.toString()
+            val inputPw = edtPassword.text.toString()
 
-            val userAge = admin
+//            조건문으로 ID/PW 맞는지 질문
+//            1. inputId 값이, admin인가?
+//            2. 1과 동시에 만족, inputPw 값이, qwer인가?
 
-
-
-            if(userAge == admin){
-
-                Log.d("조건문01", "성인입니다.")
+            if ( inputId == "admin" && inputPw == "qwer" ){
+                Toast.makeText(this, "관리자님 환영합니다.", Toast.LENGTH_SHORT).show()
             }
-
-            else if (userAge >= 17) {
-//                성인이 아리고, 질문 -> 17살 이상인가?
-                Log.d("조건문01", "고등학생입니다.")
-
-            }
-
-            else if (userAge >= 14) {
-//                성인이 아니고, 고등학생도 아닐때 질문
-                Log.d("조건문01", "중학생입니다.")
-            }
-
             else {
-                Log.d("조건문01", "초등학생이거나, 미취학 아동입니다. ")
-            }
+                Toast.makeText(this, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show()
+
+        }
+
+
 
 
         }
